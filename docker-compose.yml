@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: trackr
+      POSTGRES_PASSWORD: trackr
+      POSTGRES_DB: trackr
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  db-test:
+    image: postgres:16-alpine
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: trackr_test
+      POSTGRES_PASSWORD: trackr_test
+      POSTGRES_DB: trackr_test
+
+volumes:
+  pgdata:
