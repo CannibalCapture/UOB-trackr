@@ -1,17 +1,22 @@
 import React from "react";
+import StatCard from "@/components/layout/StatCard";
 
 type CardListProp = {
     title?: string;
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
+
 
 export default function GoalCardList({title, children}: CardListProp) {
     return (
         <section className="w-full">
-            <h1 className="text-2xl/7 font-bold text-white sm:text-3xl">
-                {title}
+        <div className="flex flex-row justify-between">
+            <h1 className="px-2 text-2xl/7 font-bold text-white sm:text-7xl">
+                <u>{title}</u>
             </h1>
-            <div className="flex flex-col gap-4 w-full">
+            <StatCard title={"Total Points"} value={"-1"}/>
+        </div>
+            <div className="flex flex-col py-4 gap-4 w-full">
                 {children}
             </div>
         </section>
